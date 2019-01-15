@@ -9,12 +9,12 @@ theta = torch.randn(1, 1, device=device, requires_grad=True)
 theta.data = torch.Tensor([[4.0]])
 
 N = 5000
-# optimizer = Santa(
-#     [theta],
-#     lr=1e-1, alpha=0.99, eps=1e-8, weight_decay=0,
-#     momentum=0.0, centered=False, decay_grad=0.0,
-#     anne_rate=0.5, burnin=N / 2, N=N)
-optimizer = Adam([theta], lr=1e-2, betas=[0.99, 0.9])
+optimizer = Santa(
+    [theta],
+    lr=1e-1, alpha=0.99, eps=1e-8, weight_decay=0,
+    momentum=0.0, centered=False, decay_grad=0.0,
+    anne_rate=0.5, burnin=N / 2, N=N)
+# optimizer = Adam([theta], lr=1e-2, betas=[0.99, 0.9])
 thetas = []
 
 for t in range(N):
